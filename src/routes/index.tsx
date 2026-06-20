@@ -1,4 +1,3 @@
-
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -16,12 +15,13 @@ const ICONS = {
   ig: "M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 00-2.13 1.38A5.86 5.86 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a5.86 5.86 0 001.38 2.13 5.86 5.86 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 002.13-1.38 5.86 5.86 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 00-1.38-2.13A5.86 5.86 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z",
   li: "M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z",
 };
-import heroPortrait from "@/assets/portrait-1.png";
+import heroPortrait from "@/assets/new-image-2.jpeg";
 import container from "@/assets/container.png";
 import civic from "@/assets/civic-intel.png";
 import whelm from "@/assets/whelm.png";
 import bolo from "@/assets/bolo.png";
 import shoe from "@/assets/shoe.png";
+import Contact from "@/components/sections/contact";
 
 function ThemeToggle() {
   const [dark, setDark] = useState(true);
@@ -930,98 +930,98 @@ function Voices() {
   );
 }
 
-function Contact() {
-  return (
-    <section id="contact" className="relative px-4 sm:px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto h-12 w-12 rounded-full border-2 border-primary/40 grid place-items-center"
-        >
-          <div className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-        </motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-8 font-display font-bold uppercase tracking-tight"
-          style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
-        >
-          Let's make something together.
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-muted-foreground max-w-xl mx-auto"
-        >
-          Looking for a freelance designer, a class for your team, or just want to chat about design
-          and teaching? Drop me a note.
-        </motion.p>
+// function Contact() {
+//   return (
+//     <section id="contact" className="relative px-4 sm:px-6 py-20 sm:py-28">
+//       <div className="mx-auto max-w-3xl text-center">
+//         <motion.div
+//           initial={{ opacity: 0, scale: 0.5 }}
+//           whileInView={{ opacity: 1, scale: 1 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.5 }}
+//           className="mx-auto h-12 w-12 rounded-full border-2 border-primary/40 grid place-items-center"
+//         >
+//           <div className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
+//         </motion.div>
+//         <motion.h2
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, delay: 0.1 }}
+//           className="mt-8 font-display font-bold uppercase tracking-tight"
+//           style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
+//         >
+//           Let's make something together.
+//         </motion.h2>
+//         <motion.p
+//           initial={{ opacity: 0 }}
+//           whileInView={{ opacity: 1 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, delay: 0.2 }}
+//           className="mt-4 text-muted-foreground max-w-xl mx-auto"
+//         >
+//           Looking for a freelance designer, a class for your team, or just want to chat about design
+//           and teaching? Drop me a note.
+//         </motion.p>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          onSubmit={(e) => e.preventDefault()}
-          className="mt-10 glass rounded-3xl p-5 sm:p-8 text-left"
-        >
-          <div className="grid sm:grid-cols-2 gap-4">
-            <Field label="Name" placeholder="John Doe" />
-            <Field label="Email" placeholder="john@studio.com" type="email" />
-          </div>
-          <div className="mt-4">
-            <label className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-              Project Brief
-            </label>
-            <textarea
-              rows={4}
-              placeholder="Tell me about your project, timeline, and team…"
-              className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
-            />
-          </div>
-          <motion.button
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-            type="submit"
-            className="mt-5 w-full rounded-full bg-primary text-primary-foreground py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-primary-glow hover:shadow-[var(--shadow-glow)] transition-all"
-          >
-            Send Message <Send size={14} />
-          </motion.button>
-        </motion.form>
-      </div>
-    </section>
-  );
-}
+//         <motion.form
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, delay: 0.3 }}
+//           onSubmit={(e) => e.preventDefault()}
+//           className="mt-10 glass rounded-3xl p-5 sm:p-8 text-left"
+//         >
+//           <div className="grid sm:grid-cols-2 gap-4">
+//             <Field label="Name" placeholder="John Doe" />
+//             <Field label="Email" placeholder="john@studio.com" type="email" />
+//           </div>
+//           <div className="mt-4">
+//             <label className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+//               Project Brief
+//             </label>
+//             <textarea
+//               rows={4}
+//               placeholder="Tell me about your project, timeline, and team…"
+//               className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+//             />
+//           </div>
+//           <motion.button
+//             whileHover={{ scale: 1.01 }}
+//             whileTap={{ scale: 0.99 }}
+//             type="submit"
+//             className="mt-5 w-full rounded-full bg-primary text-primary-foreground py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-primary-glow hover:shadow-[var(--shadow-glow)] transition-all"
+//           >
+//             Send Message <Send size={14} />
+//           </motion.button>
+//         </motion.form>
+//       </div>
+//     </section>
+//   );
+// }
 
-function Field({
-  label,
-  placeholder,
-  type = "text",
-}: {
-  label: string;
-  placeholder: string;
-  type?: string;
-}) {
-  return (
-    <div>
-      <label className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-        {label}
-      </label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
-      />
-    </div>
-  );
-}
+// function Field({
+//   label,
+//   placeholder,
+//   type = "text",
+// }: {
+//   label: string;
+//   placeholder: string;
+//   type?: string;
+// }) {
+//   return (
+//     <div>
+//       <label className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+//         {label}
+//       </label>
+//       <input
+//         type={type}
+//         placeholder={placeholder}
+//         className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
+//       />
+//     </div>
+//   );
+// }
 
 function Footer() {
   const socials = [ICONS.x, ICONS.fb, ICONS.ig, ICONS.li];
