@@ -41,7 +41,7 @@ function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-surface-elevated border border-border hover:border-primary/40 hover:text-primary transition-all"
+      className="relative inline-flex items-center justify-center transition-all border rounded-full h-9 w-9 bg-surface-elevated border-border hover:border-primary/40 hover:text-primary"
     >
       <motion.svg
         key={dark ? "moon" : "sun"}
@@ -108,10 +108,10 @@ function Navbar() {
       <nav
         className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-4 sm:px-6 py-3 transition-all duration-300 ${scrolled ? "glass shadow-[var(--shadow-elegant)]" : "glass"}`}
       >
-        <a href="#" className="font-display text-sm sm:text-base font-bold tracking-tight">
+        <a href="#" className="text-sm font-bold tracking-tight font-display sm:text-base">
           KHAIRAT<span className="text-primary">ABOLARIN</span>
         </a>
-        <ul className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+        <ul className="items-center hidden text-sm md:flex gap-7 text-muted-foreground">
           {links.map((l) => (
             <li key={l.label}>
               <a href={l.href} className="transition-colors hover:text-foreground">
@@ -124,14 +124,14 @@ function Navbar() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-glow hover:scale-105"
+            className="items-center hidden gap-2 px-5 py-2 text-sm font-semibold transition-all rounded-full sm:inline-flex bg-primary text-primary-foreground hover:bg-primary-glow hover:scale-105"
           >
             Contact Me
           </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}
-            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full bg-surface-elevated"
+            className="inline-flex items-center justify-center rounded-full md:hidden h-9 w-9 bg-surface-elevated"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -146,7 +146,7 @@ function Navbar() {
             : { opacity: 0, y: -10, pointerEvents: "none" }
         }
         transition={{ duration: 0.25 }}
-        className="md:hidden mx-auto mt-2 max-w-5xl glass rounded-3xl p-5"
+        className="max-w-5xl p-5 mx-auto mt-2 md:hidden glass rounded-3xl"
       >
         <ul className="flex flex-col gap-3 text-sm">
           {links.map((l) => (
@@ -177,7 +177,7 @@ function Navbar() {
 
 function FloatingShapes() {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
         animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
@@ -195,7 +195,7 @@ function FloatingShapes() {
 
 function Hero() {
   return (
-    <section className="relative min-h-dvh pt-32 sm:pt-40 pb-16 px-4 sm:px-6">
+    <section className="relative px-4 pt-32 pb-16 min-h-dvh sm:pt-40 sm:px-6">
       <FloatingShapes />
       <div className="relative mx-auto max-w-7xl grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-12 items-center">
         <motion.div initial="hidden" animate="show" variants={stagger}>
@@ -221,12 +221,12 @@ function Hero() {
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-xl text-base sm:text-lg text-muted-foreground"
+            className="max-w-xl mt-6 text-base sm:text-lg text-muted-foreground"
           >
             Product Designer and Design Instructor creating user-centered experiences and helping
             others grow through practical design education.
           </motion.p>
-          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3 mt-8">
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-glow hover:scale-105 hover:shadow-[var(--shadow-glow)]"
@@ -236,12 +236,12 @@ function Hero() {
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 rounded-full glass px-6 py-3 text-sm font-semibold transition-all hover:bg-surface-elevated"
+              className="inline-flex items-center gap-3 px-6 py-3 text-sm font-semibold transition-all rounded-full group glass hover:bg-surface-elevated"
             >
               <span className="flex -space-x-1">
-                <span className="h-3 w-3 rounded-full bg-red-400" />
-                <span className="h-3 w-3 rounded-full bg-amber-400" />
-                <span className="h-3 w-3 rounded-full bg-primary" />
+                <span className="w-3 h-3 bg-red-400 rounded-full" />
+                <span className="w-3 h-3 rounded-full bg-amber-400" />
+                <span className="w-3 h-3 rounded-full bg-primary" />
               </span>
               Let's Connect
             </a>
@@ -252,7 +252,7 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+          className="relative w-full max-w-md mx-auto lg:max-w-none"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,oklch(0.65_0.22_250/0.35),transparent_70%)] blur-2xl" />
           <motion.img
@@ -260,7 +260,7 @@ function Hero() {
             alt="Khairat Abolarin portrait"
             width={1024}
             height={1024}
-            className="relative w-full h-auto object-contain"
+            className="relative object-contain w-full h-auto"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -318,16 +318,16 @@ function StatsBar() {
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       variants={stagger}
-      className="relative mx-auto mt-16 sm:mt-24 max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+      className="relative grid grid-cols-2 gap-3 mx-auto mt-16 sm:mt-24 max-w-7xl md:grid-cols-4 sm:gap-4"
     >
       {stats.map((s) => (
         <motion.div
           key={s.label}
           variants={fadeUp}
           whileHover={{ y: -4 }}
-          className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-6"
+          className="p-5 glass rounded-2xl sm:rounded-3xl sm:p-6"
         >
-          <div className="font-display text-3xl sm:text-5xl font-bold text-primary">
+          <div className="text-3xl font-bold font-display sm:text-5xl text-primary">
             <Counter value={s.value} suffix={s.suffix} />
           </div>
           <div className="mt-2 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-muted-foreground">
@@ -340,7 +340,7 @@ function StatsBar() {
 }
 
 function SectionLabel({ children }: { children: string }) {
-  return <div className="section-label mb-4">{children}</div>;
+  return <div className="mb-4 section-label">{children}</div>;
 }
 
 function About() {
@@ -351,8 +351,8 @@ function About() {
     { title: "Design Education", body: "Mentoring designers through structured frameworks." },
   ];
   return (
-    <section id="about" className="relative px-4 sm:px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 lg:gap-16">
+    <section id="about" className="relative px-4 py-20 sm:px-6 sm:py-28">
+      <div className="grid gap-10 mx-auto max-w-7xl lg:grid-cols-2 lg:gap-16">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -364,7 +364,7 @@ function About() {
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="font-display font-bold leading-tight"
+            className="font-bold leading-tight font-display"
             style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
           >
             I design with curiosity
@@ -378,20 +378,20 @@ function About() {
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="text-muted-foreground text-base sm:text-lg">
+          <motion.p variants={fadeUp} className="text-base text-muted-foreground sm:text-lg">
             I'm Khairat — a Product & UI Designer with 2 years of experience shipping real
             interfaces, and a Design Instructor where I help students go from zero to
             portfolio-ready.
           </motion.p>
-          <motion.div variants={stagger} className="mt-8 grid sm:grid-cols-2 gap-4">
+          <motion.div variants={stagger} className="grid gap-4 mt-8 sm:grid-cols-2">
             {skills.map((s) => (
               <motion.div
                 key={s.title}
                 variants={fadeUp}
                 whileHover={{ y: -4, borderColor: "oklch(0.65 0.22 250 / 0.4)" }}
-                className="glass rounded-2xl p-5 transition-colors"
+                className="p-5 transition-colors glass rounded-2xl"
               >
-                <h3 className="font-display text-base font-semibold">{s.title}</h3>
+                <h3 className="text-base font-semibold font-display">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
               </motion.div>
             ))}
@@ -428,7 +428,7 @@ function ProjectCard({
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="section-label">{tag}</div>
-          <h3 className="mt-2 font-display text-xl sm:text-2xl font-bold">{title}</h3>
+          <h3 className="mt-2 text-xl font-bold font-display sm:text-2xl">{title}</h3>
         </div>
         <a
           href={link}
@@ -449,7 +449,7 @@ function ProjectCard({
 
 function Work() {
   return (
-    <section id="work" className="relative px-4 sm:px-6 py-20 sm:py-28">
+    <section id="work" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -464,7 +464,7 @@ function Work() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-display font-bold leading-tight"
+              className="font-bold leading-tight font-display"
               style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
             >
               Selected <span className="text-gradient">Projects</span>
@@ -472,7 +472,7 @@ function Work() {
           </div>
           <motion.p
             variants={fadeUp}
-            className="text-sm text-muted-foreground lg:text-right max-w-xs"
+            className="max-w-xs text-sm text-muted-foreground lg:text-right"
           >
             A few projects I'm proud of, built while learning, iterating, and shipping.
           </motion.p>
@@ -495,7 +495,7 @@ function Work() {
             <img src={container} alt="container" />
           </ProjectCard>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid gap-5 md:grid-cols-2">
             <ProjectCard
               link=" http://www.civicintelafrica.com/"
               tag="Election"
@@ -565,14 +565,14 @@ function ScrollRow({ children, ariaLabel }: { children: React.ReactNode; ariaLab
       <button
         onClick={() => scrollBy(-1)}
         aria-label="Scroll left"
-        className="hidden md:grid absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 place-items-center rounded-full glass border border-border opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary z-10"
+        className="absolute z-10 hidden w-10 h-10 transition-opacity -translate-y-1/2 border rounded-full opacity-0 md:grid left-2 top-1/2 place-items-center glass border-border group-hover:opacity-100 hover:text-primary"
       >
         <ArrowRight size={16} className="rotate-180" />
       </button>
       <button
         onClick={() => scrollBy(1)}
         aria-label="Scroll right"
-        className="hidden md:grid absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 place-items-center rounded-full glass border border-border opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary z-10"
+        className="absolute z-10 hidden w-10 h-10 transition-opacity -translate-y-1/2 border rounded-full opacity-0 md:grid right-2 top-1/2 place-items-center glass border-border group-hover:opacity-100 hover:text-primary"
       >
         <ArrowRight size={16} />
       </button>
@@ -582,7 +582,7 @@ function ScrollRow({ children, ariaLabel }: { children: React.ReactNode; ariaLab
 
 function ScrollLabel() {
   return (
-    <div className="hidden sm:flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground shrink-0">
+    <div className="items-center hidden gap-2 text-xs tracking-widest uppercase sm:flex text-muted-foreground shrink-0">
       Scroll <ArrowRight size={14} className="text-primary" />
     </div>
   );
@@ -615,7 +615,7 @@ function Process() {
     { n: "07/07", title: "Ship", body: "Hand-off, QA, launch support, iteration loops." },
   ];
   return (
-    <section id="process" className="relative px-4 sm:px-6 py-20 sm:py-28">
+    <section id="process" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -630,7 +630,7 @@ function Process() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-display font-bold leading-tight"
+              className="font-bold leading-tight font-display"
               style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
             >
               A repeatable <span className="text-gradient">process,</span>
@@ -651,8 +651,8 @@ function Process() {
               whileHover={{ y: -4 }}
               className="glass rounded-2xl p-5 snap-start shrink-0 w-[260px] sm:w-[280px]"
             >
-              <div className="text-xs text-primary font-semibold">{s.n}</div>
-              <h3 className="mt-4 font-display text-lg font-bold">{s.title}</h3>
+              <div className="text-xs font-semibold text-primary">{s.n}</div>
+              <h3 className="mt-4 text-lg font-bold font-display">{s.title}</h3>
               <p className="mt-2 text-xs text-muted-foreground">{s.body}</p>
             </motion.div>
           ))}
@@ -664,7 +664,7 @@ function Process() {
 
 function Toolkit() {
   return (
-    <section className="relative px-4 sm:px-6 py-10 sm:py-16">
+    <section className="relative px-4 py-10 sm:px-6 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -679,7 +679,7 @@ function Toolkit() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-display font-bold leading-tight"
+              className="font-bold leading-tight font-display"
               style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
             >
               A small toolkit I keep
@@ -694,15 +694,15 @@ function Toolkit() {
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto"
+          className="grid grid-cols-1 gap-4 md:grid-cols-3 auto-rows-auto"
         >
           <motion.div
             variants={fadeUp}
             whileHover={{ y: -4 }}
-            className="glass rounded-2xl p-6 md:row-span-2"
+            className="p-6 glass rounded-2xl md:row-span-2"
           >
             <div className="section-label">Product Design</div>
-            <h3 className="mt-6 font-display text-xl font-bold">Ideate → Screens</h3>
+            <h3 className="mt-6 text-xl font-bold font-display">Ideate → Screens</h3>
             <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
               <li>User flows</li>
               <li>Wireframes</li>
@@ -710,9 +710,9 @@ function Toolkit() {
               <li>Simple design systems</li>
             </ul>
           </motion.div>
-          <motion.div variants={fadeUp} whileHover={{ y: -4 }} className="glass rounded-2xl p-6">
+          <motion.div variants={fadeUp} whileHover={{ y: -4 }} className="p-6 glass rounded-2xl">
             <div className="section-label">UI Design</div>
-            <h3 className="mt-3 font-display text-lg font-bold">Clean, responsive interfaces</h3>
+            <h3 className="mt-3 text-lg font-bold font-display">Clean, responsive interfaces</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Components, layout, typography and small touches of motion.
             </p>
@@ -720,17 +720,17 @@ function Toolkit() {
           <motion.div
             variants={fadeUp}
             whileHover={{ y: -4 }}
-            className="rounded-2xl p-6 bg-primary text-primary-foreground"
+            className="p-6 rounded-2xl bg-primary text-primary-foreground"
           >
-            <div className="text-xs font-semibold uppercase tracking-widest opacity-90">
+            <div className="text-xs font-semibold tracking-widest uppercase opacity-90">
               Research
             </div>
-            <h3 className="mt-3 font-display text-lg font-bold">Talking to Users</h3>
+            <h3 className="mt-3 text-lg font-bold font-display">Talking to Users</h3>
             <p className="mt-2 text-sm opacity-90">Short interviews and basic usability testing.</p>
           </motion.div>
-          <motion.div variants={fadeUp} whileHover={{ y: -4 }} className="glass rounded-2xl p-6">
+          <motion.div variants={fadeUp} whileHover={{ y: -4 }} className="p-6 glass rounded-2xl">
             <div className="section-label">Teaching</div>
-            <h3 className="mt-3 font-display text-lg font-bold">Design Instructor</h3>
+            <h3 className="mt-3 text-lg font-bold font-display">Design Instructor</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Hands-on classes for beginners: Figma, UI/UX basics and first portfolio projects.
             </p>
@@ -738,9 +738,9 @@ function Toolkit() {
           <motion.div
             variants={fadeUp}
             whileHover={{ y: -4 }}
-            className="glass rounded-2xl p-6 flex flex-col items-center justify-center text-center"
+            className="flex flex-col items-center justify-center p-6 text-center glass rounded-2xl"
           >
-            <div className="font-display text-4xl font-bold text-primary">
+            <div className="text-4xl font-bold font-display text-primary">
               <Counter value={10} suffix="+" />
             </div>
             <div className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
@@ -769,29 +769,29 @@ function Teaching() {
     },
   ];
   return (
-    <section id="teaching" className="relative px-4 sm:px-6 py-10 sm:py-16">
+    <section id="teaching" className="relative px-4 py-10 sm:px-6 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-primary text-primary-foreground p-6 sm:p-10 lg:p-14 overflow-hidden relative"
+          className="relative p-6 overflow-hidden rounded-3xl bg-primary text-primary-foreground sm:p-10 lg:p-14"
         >
-          <div className="absolute -top-32 -right-20 w-80 h-80 bg-primary-glow/40 rounded-full blur-3xl" />
-          <div className="relative grid lg:grid-cols-2 gap-10">
+          <div className="absolute rounded-full -top-32 -right-20 w-80 h-80 bg-primary-glow/40 blur-3xl" />
+          <div className="relative grid gap-10 lg:grid-cols-2">
             <div>
-              <div className="text-xs font-semibold uppercase tracking-widest opacity-90">
+              <div className="text-xs font-semibold tracking-widest uppercase opacity-90">
                 05 — Teaching
               </div>
               <h2
-                className="mt-3 font-display font-bold leading-tight"
+                className="mt-3 font-bold leading-tight font-display"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
               >
                 Teaching What
                 <br />I Am Learning
               </h2>
-              <p className="mt-4 text-sm sm:text-base opacity-90 max-w-md">
+              <p className="max-w-md mt-4 text-sm sm:text-base opacity-90">
                 I teach Product & UI/UX Design by walking students through the basics of Figma,
                 design thinking, and putting a portfolio together — the stuff I wish someone had
                 explained clearly when I started.
@@ -800,46 +800,46 @@ function Teaching() {
                 {items.map((i) => (
                   <details
                     key={i.t}
-                    className="group rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/15 px-4 py-3 transition-all"
+                    className="px-4 py-3 transition-all border group rounded-xl bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/15"
                   >
-                    <summary className="flex items-center gap-3 cursor-pointer list-none">
-                      <span className="grid place-items-center h-6 w-6 rounded-full bg-primary-foreground/20 transition-transform group-open:rotate-45">
+                    <summary className="flex items-center gap-3 list-none cursor-pointer">
+                      <span className="grid w-6 h-6 transition-transform rounded-full place-items-center bg-primary-foreground/20 group-open:rotate-45">
                         <Plus size={14} />
                       </span>
-                      <span className="font-semibold text-sm">{i.t}</span>
+                      <span className="text-sm font-semibold">{i.t}</span>
                     </summary>
-                    <p className="mt-2 ml-9 text-xs opacity-90">{i.d}</p>
+                    <p className="mt-2 text-xs ml-9 opacity-90">{i.d}</p>
                   </details>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-2xl bg-background/95 text-foreground p-6 sm:p-8 self-start">
+            <div className="self-start p-6 rounded-2xl bg-background/95 text-foreground sm:p-8">
               <div className="flex gap-1 text-amber-400">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </div>
-              <p className="mt-4 text-sm sm:text-base italic text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-sm italic leading-relaxed sm:text-base text-muted-foreground">
                 "She is a very practical instructor. As a student, I found her way of teaching UI/UX
                 very easy to follow because she breaks down complex topics into simple steps. She
                 doesn't just teach theory — she shows how design actually works in real projects."
               </p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-rose-300 to-amber-200" />
+              <div className="flex items-center gap-3 mt-5">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-300 to-amber-200" />
                 <div>
-                  <div className="font-semibold text-sm">Jimoh Lateefat</div>
+                  <div className="text-sm font-semibold">Jimoh Lateefat</div>
                   <div className="text-xs text-muted-foreground">Student, UI/UX Cohort '25</div>
                 </div>
               </div>
-              <div className="mt-6 grid grid-cols-3 gap-4 pt-5 border-t border-border">
+              <div className="grid grid-cols-3 gap-4 pt-5 mt-6 border-t border-border">
                 {[
                   { v: 9, s: "+", l: "Students" },
                   { v: 2, s: "", l: "Workshops" },
                   { v: 1, s: "y+", l: "Teaching" },
                 ].map((x) => (
                   <div key={x.l}>
-                    <div className="font-display text-2xl font-bold">
+                    <div className="text-2xl font-bold font-display">
                       <Counter value={x.v} suffix={x.s} />
                     </div>
                     <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
@@ -878,7 +878,7 @@ function Voices() {
     },
   ];
   return (
-    <section className="relative px-4 sm:px-6 py-20 sm:py-28">
+    <section className="relative px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial="hidden"
@@ -893,7 +893,7 @@ function Voices() {
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-display font-bold leading-tight"
+              className="font-bold leading-tight font-display"
               style={{ fontSize: "clamp(1.875rem, 4vw, 3rem)" }}
             >
               From Clients, Students
@@ -914,12 +914,12 @@ function Voices() {
               className="glass rounded-3xl p-6 flex flex-col snap-start shrink-0 w-[300px] sm:w-[360px]"
             >
               <div className="section-label">{i.tag}</div>
-              <p className="mt-4 text-sm text-foreground/85 leading-relaxed flex-1">{i.body}</p>
-              <div className="mt-6 pt-5 border-t border-border flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-rose-300 to-amber-200 shrink-0" />
+              <p className="flex-1 mt-4 text-sm leading-relaxed text-foreground/85">{i.body}</p>
+              <div className="flex items-center gap-3 pt-5 mt-6 border-t border-border">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-300 to-amber-200 shrink-0" />
                 <div className="min-w-0">
-                  <div className="font-semibold text-sm truncate">{i.name}</div>
-                  <div className="text-xs text-muted-foreground truncate">{i.role}</div>
+                  <div className="text-sm font-semibold truncate">{i.name}</div>
+                  <div className="text-xs truncate text-muted-foreground">{i.role}</div>
                 </div>
               </div>
             </motion.div>
@@ -932,14 +932,14 @@ function Voices() {
 
 // function Contact() {
 //   return (
-//     <section id="contact" className="relative px-4 sm:px-6 py-20 sm:py-28">
-//       <div className="mx-auto max-w-3xl text-center">
+//     <section id="contact" className="relative px-4 py-20 sm:px-6 sm:py-28">
+//       <div className="max-w-3xl mx-auto text-center">
 //         <motion.div
 //           initial={{ opacity: 0, scale: 0.5 }}
 //           whileInView={{ opacity: 1, scale: 1 }}
 //           viewport={{ once: true }}
 //           transition={{ duration: 0.5 }}
-//           className="mx-auto h-12 w-12 rounded-full border-2 border-primary/40 grid place-items-center"
+//           className="grid w-12 h-12 mx-auto border-2 rounded-full border-primary/40 place-items-center"
 //         >
 //           <div className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
 //         </motion.div>
@@ -948,7 +948,7 @@ function Voices() {
 //           whileInView={{ opacity: 1, y: 0 }}
 //           viewport={{ once: true }}
 //           transition={{ duration: 0.6, delay: 0.1 }}
-//           className="mt-8 font-display font-bold uppercase tracking-tight"
+//           className="mt-8 font-bold tracking-tight uppercase font-display"
 //           style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
 //         >
 //           Let's make something together.
@@ -958,7 +958,7 @@ function Voices() {
 //           whileInView={{ opacity: 1 }}
 //           viewport={{ once: true }}
 //           transition={{ duration: 0.6, delay: 0.2 }}
-//           className="mt-4 text-muted-foreground max-w-xl mx-auto"
+//           className="max-w-xl mx-auto mt-4 text-muted-foreground"
 //         >
 //           Looking for a freelance designer, a class for your team, or just want to chat about design
 //           and teaching? Drop me a note.
@@ -970,9 +970,9 @@ function Voices() {
 //           viewport={{ once: true }}
 //           transition={{ duration: 0.6, delay: 0.3 }}
 //           onSubmit={(e) => e.preventDefault()}
-//           className="mt-10 glass rounded-3xl p-5 sm:p-8 text-left"
+//           className="p-5 mt-10 text-left glass rounded-3xl sm:p-8"
 //         >
-//           <div className="grid sm:grid-cols-2 gap-4">
+//           <div className="grid gap-4 sm:grid-cols-2">
 //             <Field label="Name" placeholder="John Doe" />
 //             <Field label="Email" placeholder="john@studio.com" type="email" />
 //           </div>
@@ -983,7 +983,7 @@ function Voices() {
 //             <textarea
 //               rows={4}
 //               placeholder="Tell me about your project, timeline, and team…"
-//               className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+//               className="w-full px-4 py-3 mt-2 text-sm transition-all border resize-none rounded-xl bg-background/60 border-border placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
 //             />
 //           </div>
 //           <motion.button
@@ -1017,7 +1017,7 @@ function Voices() {
 //       <input
 //         type={type}
 //         placeholder={placeholder}
-//         className="mt-2 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all"
+//         className="w-full px-4 py-3 mt-2 text-sm transition-all border rounded-xl bg-background/60 border-border placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
 //       />
 //     </div>
 //   );
@@ -1026,17 +1026,17 @@ function Voices() {
 function Footer() {
   const socials = [ICONS.x, ICONS.fb, ICONS.ig, ICONS.li];
   return (
-    <footer className="px-4 sm:px-6 pt-10 pb-8 border-t border-border">
-      <div className="mx-auto max-w-7xl grid gap-10 md:grid-cols-4">
+    <footer className="px-4 pt-10 pb-8 border-t sm:px-6 border-border">
+      <div className="grid gap-10 mx-auto max-w-7xl md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="font-display font-bold text-sm tracking-tight">KHAIRAT_ABOLARIN_2026</div>
-          <p className="mt-3 text-xs text-muted-foreground max-w-xs">
+          <div className="text-sm font-bold tracking-tight font-display">KHAIRAT_ABOLARIN_2026</div>
+          <p className="max-w-xs mt-3 text-xs text-muted-foreground">
             Building bridges between human problems and digital solutions with a Product Thinking
             lens.
           </p>
         </div>
         <div>
-          <div className="text-xs font-semibold mb-3">Navigation</div>
+          <div className="mb-3 text-xs font-semibold">Navigation</div>
           <ul className="space-y-2 text-xs text-muted-foreground">
             <li>
               <a href="#work" className="hover:text-foreground">
@@ -1061,14 +1061,14 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-xs font-semibold mb-3">Connect</div>
+          <div className="mb-3 text-xs font-semibold">Connect</div>
           <div className="flex gap-2">
             {socials.map((d, i) => (
               <a
                 key={i}
                 href="#"
                 aria-label="social"
-                className="h-9 w-9 grid place-items-center rounded-full bg-surface-elevated border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                className="grid transition-all border rounded-full h-9 w-9 place-items-center bg-surface-elevated border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
               >
                 <SocialIcon d={d} />
               </a>
@@ -1076,16 +1076,16 @@ function Footer() {
           </div>
         </div>
         <div>
-          <div className="text-xs font-semibold mb-3">Contact</div>
-          <div className="text-xs text-muted-foreground space-y-2">
+          <div className="mb-3 text-xs font-semibold">Contact</div>
+          <div className="space-y-2 text-xs text-muted-foreground">
             <div>khairatabolarin01@gmail.com</div>
-            <a href="#" className="text-foreground hover:text-primary">
+            <a href="https://drive.google.com/file/d/1OpW8Wm5kmamMdl2l9svo_NgfvHs-CrsE/view?usp=sharing" className="text-foreground hover:text-primary">
               Link to my Resume
             </a>
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl mt-10 pt-6 border-t border-border text-xs text-muted-foreground flex flex-wrap justify-between gap-2">
+      <div className="flex flex-wrap justify-between gap-2 pt-6 mx-auto mt-10 text-xs border-t max-w-7xl border-border text-muted-foreground">
         <span>© 2026 Khairat Abolarin. All rights reserved.</span>
         <span>Designed & built with care.</span>
       </div>
